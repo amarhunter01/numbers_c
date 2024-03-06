@@ -8,14 +8,12 @@ int main(){
     //numbers for specifying digits must start with 0 
     // int x = 0231;
     // int y = 0x23A3;
-
     // printf("x: %d\ny: %d\n", x, y);
     // printf("x: %o\ny: %x\n", x, y);
     // printf("x: %#o\ny: %#x\n", x, y);
     // printf("x: %#010o\ny: %#010x\n", x, y);
 
     //float short decimal and double long decimal 
-
     //C ignores second statemnt if first is true
     // int i = 1, j = 1;
     // int check = (i || ++j);
@@ -45,8 +43,8 @@ int main(){
     // printf("i: %d\nc1: %c\nc2: %c\nx/y=%f\nIn float x/y= %1.2f\n", i, c1, c2, a, b);
 
     //x might lose data because 22 is considered int while y won't
-    //F for float
-    //float x = 10F error can't use it with whole number
+    // F for float
+    // float x = 10F error can't use it with whole number
     // long long x = 22;
     // long long y = 22LL;
     // printf("x: %llu\nsizeof: %lu\ny: %llu\nsizeof: %lu\n", x, sizeof(x), y, sizeof(y));
@@ -71,10 +69,18 @@ int main(){
     // int check = a&b;
     // printf("a: %d\ncheck: %d\n", a, check);
 
+    //parentheses x is set to last thing from parentheses
+    // int x, y;
+    // x = (y = 2, 3);
+    // x = (x<5 ? y++ : y--, 7);
+    // printf("x: %d\ny: %d\n", x, y);
 
-
-
-
+    //signed and unsigned
+    // signed int x = -10;
+    // unsigned int y = 10;
+    // signed char c = 98;
+    // unsigned char cu = 98;
+    // printf("x: %d\ny: %d\nc: %c\ncu: %c\n", x, y, c, cu);
 
 
 
