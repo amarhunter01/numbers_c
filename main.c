@@ -82,9 +82,52 @@ int main(){
     // unsigned char cu = 98;
     // printf("x: %d\ny: %d\nc: %c\ncu: %c\n", x, y, c, cu);
 
+    //switch needs break for every line except default
+    //(x%100) returns last to numbers 432 => 32 then dividing by 10 will give 32/10 = 3
+    //x%100 can be used to set which number is needed and then divied by necessary amount
+    // int x; 
+    // printf("Enter number: "); 
+    // scanf("%d", &x);
+    // switch((x%100)/10){
+    //     case 0:{
+    //         printf("0\n");
+    //         break;
+    //     }
+    //     case 1:{
+    //         printf("1\n");
+    //         break;
+    //     }
+    //     case 3: printf("3\n"); break;
+    //     default:
+    //         printf("Not first 3\n");
+    // }
 
+    //do while guarantees to pass at least once
+    // int i = 0;
+    // int x, y = 0;
+    // scanf("%d", &x);
+    // do {
+    //     y += i;
+    //     i++;
+    // } while(i<=x);
 
+    // printf("%d\n", y);
 
+    //sintax for for loop
+    //increments at the end
+    //calls at the end so ++i doesn't change anything
+    // int x, y=0;
+    // scanf("%d", &x);
+    // for(int i=0; i<=x; i++){
+    //     y  += i;
+    //     printf("%d\n", i);
+    // }
+    // printf("%d\n", y);
+    
+    //args are read from right to left
+    // int i = 1;
+    // printf("First i: %d\nSecond i: %d\n", i, i += 1);
+    
 
 
 }
