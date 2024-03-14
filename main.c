@@ -115,7 +115,7 @@ int main(){
 
     //sintax for for loop
     //increments at the end
-    //calls at the end so ++i doesn't change anything
+    //calls at the end so ++i doesn't change anything ? 
     // int x, y=0;
     // scanf("%d", &x);
     // for(int i=0; i<=x; i++){
