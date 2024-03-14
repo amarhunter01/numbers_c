@@ -82,7 +82,7 @@ int main(){
     // unsigned char cu = 98;
     // printf("x: %d\ny: %d\nc: %c\ncu: %c\n", x, y, c, cu);
 
-    //switch needs break for every line except default
+    //switch needs break for every line except default when last
     //(x%100) returns last to numbers 432 => 32 then dividing by 10 will give 32/10 = 3
     //x%100 can be used to set which number is needed and then divied by necessary amount
     // int x; 
@@ -124,7 +124,7 @@ int main(){
     // }
     // printf("%d\n", y);
     
-    //args are read from right to left
+    //args are read from right to left prob works with i++
     // int i = 1;
     // printf("First i: %d\nSecond i: %d\n", i, i += 1);
     
