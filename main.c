@@ -179,7 +179,10 @@ int main(){
     // int len = sizeof(d)/sizeof(d[0]);
     // printf("%d\n", len);
     // printf("%d\n", d[len-1]);
-    
+    // // also works with &d[0]
+    // int *p = d;
+    // printf("%d\n", *p+1);
+
     // //goto to avoid
     // int i=0;
     // lab: printf("%d\n", i);
