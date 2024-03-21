@@ -181,7 +181,7 @@ int main(){
     // printf("%d\n", d[len-1]);
     // // also works with &d[0]
     // int *p = d;
-    // printf("%d\n", *p+1);
+    // printf("%d\n", *(p+2));
 
     // //goto to avoid
     // int i=0;
