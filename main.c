@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 
 void show_array(int a[50],int n){
     int i = 0;
@@ -191,6 +193,54 @@ int main(){
     //     goto lab;
     // }
     // printf("end\n");
+
+    // //fgets will put '\0' on 9 as last index
+    // char s[10];
+    // fgets(s, sizeof(s), stdin);
+    // puts(s);
+
+    // //getch() doesn't put extra chars in buffer 
+    // char c;
+    // c = getch();
+    // putch(c);
+
+    // //string copy
+    // char s1[10], s2[10];
+    // fgets(s1, sizeof(s1), stdin);
+    // strcpy(s2, s1);
+    // printf("\ns1: ");
+    // puts(s1);
+    // printf("\ns2: ");
+    // puts(s2);
+
+    // //one to other
+    // //fgets() adds new line
+    // //sscanf() formats it
+    // char s1[10], s2[10], s3[10];
+    // printf("Enter first string: ");
+    // fgets(s1, sizeof(s1), stdin);
+    // printf("Enter second string: ");
+    // fgets(s2, sizeof(s2), stdin);
+    // sscanf(s1, "%s", s1);
+    // sscanf(s2, "%s", s2);
+    // strcat(s1, s2); 
+    // puts(s1);
+    
+    // //literals? they can't be changed
+    // char *p = "Test";
+    // puts(p);
+
+    // //convert to number function atol() is for long and atof() is for float
+    // char s[20];
+    // printf("Enter string:\n");
+    // fgets(s, sizeof(s), stdin);
+    // sscanf(s, "%s", s);
+
+    // int i = atoi(s);
+    // printf("i: %d\n", i);
+
+
+
 
     return 0;
 }
