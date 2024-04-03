@@ -2,6 +2,10 @@
 #include <string.h>
 #include <stdlib.h>
 
+void double_second(int *, int);
+
+int find_max(int *, int, int *);
+
 void show_array(int a[50],int n){
     int i = 0;
     printf("Start of array\n");
@@ -30,6 +34,11 @@ void show_2d_array(int a[][4], int n, int m){
 
 }
 
+void show_2d_array_p(int (*x)[50], int n, int m);
+
+void passed_function();
+
+void called_function(void (*)());
 
 int main(){
     // //0 before number is octal and 0x is hexdecimal
@@ -239,9 +248,77 @@ int main(){
     // int i = atoi(s);
     // printf("i: %d\n", i);
 
+    // //function should be declared at the start and add code at the bottom
+    // //it need type of variables and pointers
+    // //pointers to array in function
+    // int x[50] = {0, 1, 2, 3, 4, 5, 6, 10, 20, 30};
+    // int n = 10;
+    // int i_max;
+    
+    // //calling a function with refrence but it is not needed but it still give error
+    // double_second(x, n);
+    // show_array(x, n);
+
+    // int max = find_max(x, n, &i_max);
+
+    // printf("\nmax: %d\ni_max: %d\n", max, i_max);
+    
+    // //passed function with pointer to other function 
+    // //pay attetion to declaretion fun( int *()() ) and fun( int (*fun2) )
+    // //it can work with and without & when calling
+    // called_function(passed_function);
+
+    // //2d arrays in function and in the main should have the same n and should be passed only a pointer
+    // printf("Enter array:\n");
+    // int x[50][50];
+    // int n = 2;
+    // for(int i = 0; i < 2; i++)
+    //     for(int j = 0; j < n; j++){
+    //         printf("x[%d][%d]: ", i, j);
+    //         scanf("%d", &x[i][j]);
+
+    //     }
+    // show_2d_array_p(x, n, n);
 
 
 
     return 0;
 }
 
+void show_2d_array_p(int (*x)[50], int n, int m){
+    printf("Start of array\n");
+    for(int i = 0; i<n; i++){
+        for(int j = 0; j<m; j++)
+            printf("%d ", x[i][j]);
+        printf("\n");
+    }
+    printf("End of array\n");
+
+}
+
+
+void double_second(int *x, int n){
+    for(int i = 0; i<n; i += 2)
+        x[i] *= 2;
+}
+
+int find_max(int *x, int n, int *i_max){
+    int max = x[0];
+    *i_max = 0;
+    for(int i = 1; i<n; i++)
+        if(x[i]>max){
+            max = x[i];
+            *i_max = i;
+
+        }
+    return max;
+}
+
+void called_function(void (*fun)()){
+    printf("I am called function\n");
+    fun();
+}
+
+void passed_function(){
+    printf("I am passed function\n");
+}
