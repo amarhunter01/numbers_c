@@ -2,18 +2,23 @@
 #include <string.h>
 #include <stdlib.h>
 
+#define PI 3.14
+#define SAYHI sayHello()
+
+typedef unsigned int POSITIVE;
+
 void double_second(int *, int);
 
 int find_max(int *, int, int *);
 
-void show_array(int a[50],int n){
+void show_array(int *a,int n){
     int i = 0;
     printf("Start of array\n");
-    while (i<=n) {
-        printf("%d\n", a[i]);
+    while (i<n) {
+        printf("%d ", a[i]);
         i++;
     }
-    printf("End of array\n");
+    printf("\nEnd of array\n");
 
 }
 
@@ -34,11 +39,26 @@ void show_2d_array(int a[][4], int n, int m){
 
 }
 
+void sayHello(){
+    printf("Kept you, waiting, huh\n");
+}
+
 void show_2d_array_p(int (*x)[50], int n, int m);
 
 void passed_function();
 
 void called_function(void (*)());
+
+int brute_force(int *, int, int);
+
+int binary_search_r(int *, int, int, int);
+
+int binary_search(int *, int, int, int);
+
+void selection_sort(int *, int);
+
+void bubble_sort(int *, int);
+
 
 int main(){
     // //0 before number is octal and 0x is hexdecimal
@@ -280,9 +300,51 @@ int main(){
     //     }
     // show_2d_array_p(x, n, n);
 
+    // //for searching and sorting
+    // int x_s[] = {3, 6, 9, 10, 11, 20, 34};
+    // int n_s = sizeof(x_s)/sizeof(x_s[1]);
+    // int x_u[] = {3, 4, 2, 3, 7, 10, 9, 45, 11, 56, 23, 20, 21};
+    // int n_u = sizeof(x_u)/sizeof(x_u[1]);
+    // int s = 10;
 
 
-    return 0;
+    // //brute force
+    // int i = brute_force(x_s, n_s, s);
+
+    //binary search
+    // int i = binary_search_r(x_s, n_s, 0, s);
+
+    // if(i < 0){
+    //     printf("Element isn't found\n");
+    // }else{
+    //     printf("Element is on the index: %d\n", i);
+    // }
+
+    // // selection sort
+    // selection_sort(x_u, n_u);
+
+    // // bubble sort
+    // bubble_sort(x_u, n_u);
+
+    // show_array(x_u, n_u);
+
+    //const remove const and look what is on the right side ??
+    // int k = 0;
+    // const int i = 0;
+    // int j = 4;
+    // const int *j ; // const on variable
+
+    // int * const k; // const on pointer
+
+    // // const * const i; // const on pointer and variable
+    // POSITIVE i = 1;
+    // printf("%d", i);
+
+    //#define puts said value where the name is and for PIPI should put 3.143.14
+    // printf("%1.2f\n", PI);
+    // SAYHI;
+
+    return 0;   
 }
 
 void show_2d_array_p(int (*x)[50], int n, int m){
@@ -321,4 +383,67 @@ void called_function(void (*fun)()){
 
 void passed_function(){
     printf("I am passed function\n");
+}
+
+int brute_force(int *x, int n, int s ){
+    for(int i = 0; i<n; i++)
+        if(x[i]==s)
+            return i;
+    return -1;
+}
+
+int binary_search_r(int *x, int n, int i, int s){
+    if(i>n)
+        return -1;
+    if(x[(n-i)/2]== s)
+        return (n-i)/2;
+    if(x[(n-i)/2] < s)
+        return binary_search_r(x, n, (n-i)/2+1, s);
+    if(x[(n-i)/2] > s)
+        return binary_search_r(x, (n-i)/2-1, i, s);
+    return -2;
+}
+
+int binary_search(int *x, int n, int i, int s){
+    while(i<=n)
+        if(x[(n-i)/2]==s)
+            return (n-i)/2;
+        else if(x[(n-i)/2]<s)
+            i = (n-i)/2 + 1;
+        else if(x[(n-i)/2]>s)
+            n = (n - i)/2 - 1;
+    
+    return -1;
+}
+
+void selection_sort(int *x, int n){
+    int h, k, min;
+    for(int i = 0; i<n-1; i++){
+        k = i;
+        min = x[i];
+        for(int j = i + 1; j<n; j++)
+            if(x[j]<min){
+                k = j;
+                min = x[j];
+            }
+        h = x[i];
+        x[i] = x[k];
+        x[k] = h;
+
+    }
+}
+
+void bubble_sort(int *x, int n){
+    int ind = 1, h;
+    for(int i = 0; i<n-1 && ind == 1; i++){
+        ind = 0;
+        for(int j = 0; j<n-i-1; j++){
+            if(x[j]>x[j+1]){
+                ind = 1;
+                h = x[j];
+                x[j] = x[j+1];
+                x[j+1] = h;
+            }
+        }
+    }
 }
