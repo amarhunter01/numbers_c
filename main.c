@@ -304,11 +304,11 @@ int main(){
     // show_2d_array_p(x, n, n);
 
     // //for searching and sorting
-    int x_s[] = {3, 6, 9, 10, 11, 20, 34};
-    int n_s = sizeof(x_s)/sizeof(x_s[1]);
-    int x_u[] = {3, 4, 2, 3, 7, 10, 9, 45, 11, 56, 23, 20, 21};
-    int n_u = sizeof(x_u)/sizeof(x_u[1]);
-    int s = 10;
+    // int x_s[] = {3, 6, 9, 10, 11, 20, 34};
+    // int n_s = sizeof(x_s)/sizeof(x_s[1]);
+    // int x_u[] = {3, 4, 2, 3, 7, 10, 9, 45, 11, 56, 23, 20, 21};
+    // int n_u = sizeof(x_u)/sizeof(x_u[1]);
+    // int s = 10;
 
 
     // //brute force
