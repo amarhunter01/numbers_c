@@ -55,10 +55,13 @@ int binary_search_r(int *, int, int, int);
 
 int binary_search(int *, int, int, int);
 
-void selection_sort(int *, int);
+void selection_sort_v2(int *, int);
 
 void bubble_sort(int *, int);
 
+void insertion_sort(int *, int);
+
+void selection_sort(int *, int);
 
 int main(){
     // //0 before number is octal and 0x is hexdecimal
@@ -301,11 +304,11 @@ int main(){
     // show_2d_array_p(x, n, n);
 
     // //for searching and sorting
-    // int x_s[] = {3, 6, 9, 10, 11, 20, 34};
-    // int n_s = sizeof(x_s)/sizeof(x_s[1]);
-    // int x_u[] = {3, 4, 2, 3, 7, 10, 9, 45, 11, 56, 23, 20, 21};
-    // int n_u = sizeof(x_u)/sizeof(x_u[1]);
-    // int s = 10;
+    int x_s[] = {3, 6, 9, 10, 11, 20, 34};
+    int n_s = sizeof(x_s)/sizeof(x_s[1]);
+    int x_u[] = {3, 4, 2, 3, 7, 10, 9, 45, 11, 56, 23, 20, 21};
+    int n_u = sizeof(x_u)/sizeof(x_u[1]);
+    int s = 10;
 
 
     // //brute force
@@ -320,11 +323,17 @@ int main(){
     //     printf("Element is on the index: %d\n", i);
     // }
 
-    // // selection sort
+    //selection sort 
     // selection_sort(x_u, n_u);
+
+    // // selection sort v2
+    // selection_sort_v2(x_u, n_u);
 
     // // bubble sort
     // bubble_sort(x_u, n_u);
+
+    // // insertion sort
+    // insertion_sort(x_u, n_u);
 
     // show_array(x_u, n_u);
 
@@ -416,7 +425,7 @@ int binary_search(int *x, int n, int i, int s){
     return -1;
 }
 
-void selection_sort(int *x, int n){
+void selection_sort_v2(int *x, int n){
     int h, k, min;
     for(int i = 0; i<n-1; i++){
         k = i;
@@ -446,4 +455,26 @@ void bubble_sort(int *x, int n){
             }
         }
     }
+}
+
+void insertion_sort(int *x, int n){
+    int temp;
+    for (int i = 1; i<n;i++)
+        for(int j = i - 1; j>-1; j--)
+            if(x[j]>x[j+1]){
+                temp = x[j];
+                x[j] = x[j+1];
+                x[j+1] = temp;
+            }
+}
+
+void selection_sort(int *x, int n){
+    int temp;
+    for(int i = 0; i<n-1;i++)
+        for(int j = i; j<n; j++)
+            if(x[i]>x[j]){
+                temp = x[i];
+                x[i] = x[j];
+                x[j] = temp;
+            }
 }
