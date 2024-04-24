@@ -5,6 +5,9 @@
 #define PI 3.14
 #define SAYHI sayHello()
 
+//global variable
+int X = 999999;
+
 typedef unsigned int POSITIVE;
 
 void double_second(int *, int);
@@ -62,6 +65,10 @@ void bubble_sort(int *, int);
 void insertion_sort(int *, int);
 
 void selection_sort(int *, int);
+
+void var_stat();
+
+int* check_arr(int *, int);
 
 int main(){
     // //0 before number is octal and 0x is hexdecimal
@@ -353,9 +360,144 @@ int main(){
     // printf("%1.2f\n", PI);
     // SAYHI;
 
+    // //specificators
+    // char s[50];
+    // char ch;
+    // printf("Enter string: ");
+
+    //* for ignoring 
+    //when it detects char that isn't in the said range it ignores the rest. Left chars are in the buffer
+    // scanf("%[a-d123]", s);
+
+    // [^d] it reads until d 
+    // scanf("%[^d]", s);
+
+    //now string and ch input
+    // scanf("%[^ ]%*c", s);
+    // scanf("%c", &ch);
+
+    // printf("ch: %c\n", ch);
+
+    // printf("s: %s", s);
+
+    // //spintf() moddifed input in string
+
+    // int h = 22, min = 4, sec = 34;
+    // char s[50];
+
+    // sprintf(s, "%.2d:%.2d:%.2d", h, min, sec);
+
+    // printf("s: %s\n", s);
+
+    // //multivar enter
+    // int x, y;
+    // char s[20];
+
+    // scanf("%2d%[^#]%*c", &x);
+    // scanf("%2d%*d%*c%s", &y, s);
+    
+    // printf("x: %d\ny: %d\ns: %s", x, y, s);
+
+    // //sscanf() moddifying string
+    // char s[20] = {"Hello\nthere\n"};
+    // printf("s: %s", s);
+    // sscanf(s, "%[^ \n]%*c", s);
+    // printf("s: %s\n", s);
+
+    // // strtok() knows where it left off which is why it is passed Null
+    // char str[] = "First, second, and third: kuku-riku."; 
+    // char delim[] = " -,.:"; 
+    // char *str2; str2 = strtok(str, delim); 
+    // while(str2 != NULL) { 
+    //     printf("%s\n", str2); 
+    //     str2 = strtok(NULL, delim); 
+    // }
+
+    //math.h limit.h ctype.h libs 
+
+    // //global variables
+    // printf("Global X: %d\n", X);
+    // X = 20;
+    // printf("Changed X: %d\n", X);
+    // int X = 30;
+    // printf("X: %d\n", X);
+    // passed_function();
+
+    //static var are not deleted from memory but they can't be accessed from other functions
+    // var_stat();
+    // var_stat();
+    // var_stat();
+
+    //register send var to register if poss and volatile tells that the function can be changed even by other programs
+
+    // //dynamic allocation
+    // int *arr;
+    // int n;
+
+    // printf("Enter n: ");
+    // scanf("%d", &n);
+    // arr = (int *) malloc(n*sizeof(int));
+    // if(arr == NULL){
+    //     printf("Not enough memory");
+    //     exit(1);
+    // }
+
+
+    // for(int i = 0; i<n; i++){
+    //     scanf("%d", &arr[i]);
+    // }
+
+    // show_array(arr, n);
+
+    // realloc(arr, 10);
+    // arr[9] = 5;
+    // show_array(arr, 10);
+
+    // free(arr);
+
+    // //returning array
+    // int *arr, *arr2;
+    // int n;
+
+    // printf("Enter n: ");
+    // scanf("%d", &n);
+    // arr = (int *) malloc(n*sizeof(int));
+    // if(arr == NULL){
+    //     printf("Not enough memory");
+    //     exit(1);
+    // }
+
+
+    // for(int i = 0; i<n; i++){
+    //     scanf("%d", &arr[i]);
+    // }
+
+    // arr2 = check_arr(arr, n);
+
+    // show_array(arr2, n);
 
 
     return 0;   
+}
+int* check_arr(int *x, int n){
+    int *arr = (int *) malloc(n*sizeof(int));
+    for(int i = 0; i<n; i++)
+        if(x[i]>20)
+            arr[i] = 20;
+        else
+            arr[i] = x[i];
+    return arr; 
+    }
+
+
+void var_stat(){
+    static int x = 100;
+    int i = 0;
+    while(i<3){
+        printf("x: %d ", x++);
+        i++;
+    }
+    printf("\n");
 }
 
 void show_2d_array_p(int (*x)[50], int n, int m){
@@ -394,6 +536,7 @@ void called_function(void (*fun)()){
 
 void passed_function(){
     printf("I am passed function\n");
+    printf("Global X from fun: %d", X);
 }
 
 int brute_force(int *x, int n, int s ){
