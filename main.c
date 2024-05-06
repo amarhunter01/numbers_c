@@ -5,6 +5,11 @@
 #define PI 3.14
 #define SAYHI sayHello()
 
+typedef struct{
+    int im;
+    int rel;
+} img;
+
 //global variable
 int X = 999999;
 
@@ -476,9 +481,67 @@ int main(){
 
     // show_array(arr2, n);
 
+    // //read from files
+    // int n = 1000;
+    // char s[n];
+    // FILE *f = NULL;
+    // f = fopen("./hello.txt",  "r");
+    // if (f == NULL)
+    //     exit(1);
+    
+    // while(fgets(s, n, f) != NULL){
+    //     printf("%s", s);
+    // }
+    // fclose(f);
+
+    // //writing on file
+    // // w+ for reading and writing but overrides
+    // // r+ if doesnt exits returns NULL
+    // // a+ for appending and reading if doesnt exits returns NULL
+    // int n = 1000;
+    // char s[n]; 
+
+    // FILE *f  = fopen("entered.txt", "w+");
+
+    // if(f == NULL){
+    //     printf("Error");
+    //     exit(1);
+    // }
+
+    // fputs("Kept you waiting, huh HEllo", f);
+
+    // rewind(f);
+    // while(fgets(s, n, f) != NULL){
+    //     printf("%s", s);
+    // }
+
+    // printf("\n-----------------\n");
+
+    // rewind(f);
+    // fputs("\nNew", f);
+    // rewind(f);
+    // while(fgets(s, n, f) != NULL){
+    //     printf("%s", s);
+    // }
+
+    // _fcloseall();
+
+    // //enum starts with 0
+    // enum days {MON, TUE, WED, THU, FRI, SAT, SUN = 7};
+
+    // printf("MON_d: %d\n", MON);
+    // printf("SUN_d: %d\n", SUN);
+
+    //structure if not declared with typedef requires struct name
+    img z;
+    z.rel = 20;
+    z.im = 2;
+    printf("%d + %di\n", z.rel, z.im);
+
 
     return 0;   
 }
+
 int* check_arr(int *x, int n){
     int *arr = (int *) malloc(n*sizeof(int));
     for(int i = 0; i<n; i++)
