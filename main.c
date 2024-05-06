@@ -532,11 +532,11 @@ int main(){
     // printf("MON_d: %d\n", MON);
     // printf("SUN_d: %d\n", SUN);
 
-    //structure if not declared with typedef requires struct name
-    img z;
-    z.rel = 20;
-    z.im = 2;
-    printf("%d + %di\n", z.rel, z.im);
+    // //structure if not declared with typedef requires struct name
+    // img z;
+    // z.rel = 20;
+    // z.im = 2;
+    // printf("%d + %di\n", z.rel, z.im);
 
 
     return 0;   
