@@ -571,8 +571,8 @@ int main(){
     // printf("Size of union: %lu\n", sizeof(i_ch));
     // printf("Size of union: %lu\n", sizeof(i_ch_s));
 
-    //list_arr uses index of array to point to next element
-    //list uses pointers
+    // //list_arr uses index of array to point to next element
+    // //list uses pointers
 
 
 
