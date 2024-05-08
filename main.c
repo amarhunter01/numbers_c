@@ -6,9 +6,30 @@
 #define SAYHI sayHello()
 
 typedef struct{
-    int im;
+    int n;
+    int i; 
+} list_arr;
+
+typedef struct{
+    int n;
+    list *next; 
+} list;
+
+typedef struct{
+    //this means im takes 4 bytes
+    int im:4;
     int rel;
 } img;
+
+typedef union{
+    int ind;
+    char chs[3];
+} i_ch;
+
+typedef struct{
+    int ind;
+    char chs[3];
+} i_ch_s;
 
 //global variable
 int X = 999999;
@@ -537,6 +558,22 @@ int main(){
     // z.rel = 20;
     // z.im = 2;
     // printf("%d + %di\n", z.rel, z.im);
+
+    // //foward referecing is allowed
+    // //struct with pointers
+    // //struct from pointer must be accessed with -> operator
+    // img *z = (img *) malloc(sizeof(img));
+    // z->rel = 18;
+    // z->im = 7;
+    // printf("%d + %di\n", z->rel, z->im); 
+
+    // //unions take memory just for the biggest variable
+    // printf("Size of union: %lu\n", sizeof(i_ch));
+    // printf("Size of union: %lu\n", sizeof(i_ch_s));
+
+    //list_arr uses index of array to point to next element
+    //list uses pointers
+
 
 
     return 0;   
