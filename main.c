@@ -12,7 +12,7 @@ typedef struct{
 
 typedef struct{
     int n;
-    list *next; 
+    struct list *next; 
 } list;
 
 typedef struct{
