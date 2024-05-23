@@ -31,6 +31,19 @@ typedef struct{
     char chs[3];
 } i_ch_s;
 
+typedef struct list_back{
+    int n;
+    struct list_back *prev;
+    struct list_back *next;
+
+} list_back;
+
+typedef struct tree{
+    int n;
+    struct tree *l;
+    struct tree *r;
+} tree;
+
 //global variable
 int X = 999999;
 
@@ -95,6 +108,14 @@ void selection_sort(int *, int);
 void var_stat();
 
 int* check_arr(int *, int);
+
+void inorder(tree *);
+
+void postorder(tree *);
+
+void preorder(tree *);
+
+void enter_tree(tree *);
 
 int main(){
     // //0 before number is octal and 0x is hexdecimal
@@ -573,10 +594,81 @@ int main(){
 
     // //list_arr uses index of array to point to next element
     // //list uses pointers
+    // //back_list has pointers to previous and next
+    // //tree has pointers to left and right node
+    // //inorder first left and root and then right 
+    // //preorder root left and then right
+    // //left and right then root
+    // //left is usually smaller then root and right bigger
 
-
+    tree *root = NULL;
+    root = (tree *) malloc(sizeof(tree));
+    if(root ==  NULL ){
+        printf("error");
+        exit(1);
+    }
+    enter_tree(root);
 
     return 0;   
+}
+
+void postorder(tree *root){
+    if(root != NULL){
+        postorder(root->l);
+        postorder(root->r);
+        printf("%d", &root -> n);
+    }
+}
+
+void preorder(tree *root){
+    if(root != NULL){
+        printf("%d", &root -> n);
+        preorder(root-> l);
+        preorder(root-> r);
+    }
+}
+
+void inorder(tree *root){
+    if(root != NULL){
+        inorder(root->l);
+        printf("%d", &root->n);
+        inorder(root->r);
+    }
+}
+
+void enter_tree(tree *root){
+    printf("Enter n: ");
+    scanf("%d", &(root -> n));
+
+    int l;
+    printf("Is there left ('1' for Yes or '0' for No): " );
+    scanf("%d", &l);
+    if(l){
+        root->l =  (tree *) malloc(sizeof(tree));
+        if(root -> l ==  NULL ){
+            printf("error");
+            exit(1);
+        }
+        printf("Created!\n");
+        if(root -> l != NULL){
+            enter_tree(root->l);
+        }
+    }
+
+    printf("Is there right ('1' for Yes or '0' for No): " );
+    int r;
+    scanf("%d", &r);
+    if(r){
+        root -> r = (tree *) malloc(sizeof(tree));
+        if(root -> r == NULL ){
+            printf("error");
+            exit(1);
+        }
+        printf("Created!\n");
+        if(root -> r != NULL){
+            enter_tree(root->r);
+        }
+    }
 }
 
 int* check_arr(int *x, int n){
@@ -587,7 +679,7 @@ int* check_arr(int *x, int n){
         else
             arr[i] = x[i];
     return arr; 
-    }
+}
 
 
 void var_stat(){
