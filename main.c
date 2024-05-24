@@ -601,13 +601,13 @@ int main(){
     // //left and right then root
     // //left is usually smaller then root and right bigger
 
-    tree *root = NULL;
-    root = (tree *) malloc(sizeof(tree));
-    if(root ==  NULL ){
-        printf("error");
-        exit(1);
-    }
-    enter_tree(root);
+    // tree *root = NULL;
+    // root = (tree *) malloc(sizeof(tree));
+    // if(root ==  NULL ){
+    //     printf("error");
+    //     exit(1);
+    // }
+    // enter_tree(root);
 
     return 0;   
 }
