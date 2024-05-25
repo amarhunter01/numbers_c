@@ -117,6 +117,8 @@ void preorder(tree *);
 
 void enter_tree(tree *);
 
+void enter_tree_level(tree *, int);
+
 int main(){
     // //0 before number is octal and 0x is hexdecimal
     // //%d outputs number in decimal
@@ -609,20 +611,99 @@ int main(){
     // }
     // enter_tree(root);
 
+    // //better enter tree function
+    // //goes left 
+    // tree *root = (tree *) malloc(sizeof(tree));
+    // if(root == NULL){
+    //     printf("error\n");
+    //     exit(1);
+    // }
+    // printf("Enter n for node on level 1: ");
+    // scanf("%d", &root->n);
+
+    // int l;
+    // printf("Is there left node on level 2 (enter '1' for YES and '0' for NO): ");
+    // scanf("%d", &l);
+
+    // if(l){
+    //     root -> l = (tree *) malloc(sizeof(tree));
+    //     if(root -> l == NULL){
+    //         printf("error");
+    //         exit(1);
+    //     }
+    //     printf("Enter n for left node on level 2: ");
+    //     scanf("%d", &root->l -> n);
+    // }
+
+    // int r;
+    // printf("Is there right node on level 2 (enter '1' for YES and '0' for NO): ");
+    // scanf("%d", &r);
+
+    // if(r){
+    //     root -> r = (tree *) malloc(sizeof(tree));
+    //     if(root -> r == NULL){
+    //         printf("error");
+    //         exit(1);
+    //     }
+    //     printf("Enter n for right node on level 2: ");
+    //     scanf("%d", &root->r -> n);
+    // }
+
+    // enter_tree_level(root->l, 2);
+    // enter_tree_level(root->r, 2);
+
+    // inorder(root);
+
     return 0;   
+}
+
+void enter_tree_level(tree *root, int i){
+
+    if(root != NULL){
+        int l;
+        printf("Is there left node on level %d (enter '1' for YES and '0' for NO): ", i+1);
+        scanf("%d", &l);
+
+        if(l){
+            root -> l = (tree *) malloc(sizeof(tree));
+            if(root -> l == NULL){
+                printf("error");
+                exit(1);
+            }
+            printf("Enter n for left node on level %d: ", i+1);
+            scanf("%d", &root->l -> n);
+        }
+
+        int r;
+        printf("Is there right node on level %d (enter '1' for YES and '0' for NO): ", i+1);
+        scanf("%d", &r);
+
+        if(r){
+            root -> r = (tree *) malloc(sizeof(tree));
+            if(root -> r == NULL){
+                printf("error");
+                exit(1);
+            }
+            printf("Enter n for right node on level %d: ", i+1);
+            scanf("%d", &root->r -> n);
+        }
+
+        enter_tree_level(root->l, i+1);
+        enter_tree_level(root->r, i+1);
+    }
 }
 
 void postorder(tree *root){
     if(root != NULL){
         postorder(root->l);
         postorder(root->r);
-        printf("%d", &root -> n);
+        printf("%d", root -> n);
     }
 }
 
 void preorder(tree *root){
     if(root != NULL){
-        printf("%d", &root -> n);
+        printf("%d", root -> n);
         preorder(root-> l);
         preorder(root-> r);
     }
@@ -631,7 +712,7 @@ void preorder(tree *root){
 void inorder(tree *root){
     if(root != NULL){
         inorder(root->l);
-        printf("%d", &root->n);
+        printf("%d", root->n);
         inorder(root->r);
     }
 }
