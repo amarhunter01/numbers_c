@@ -370,8 +370,17 @@ int main(){
     // //brute force
     // int i = brute_force(x_s, n_s, s);
 
-    //binary search
+    //binary search recursive
     // int i = binary_search_r(x_s, n_s, 0, s);
+
+    // if(i < 0){
+    //     printf("Element isn't found\n");
+    // }else{
+    //     printf("Element is on the index: %d\n", i);
+    // }
+
+    //binary search
+    // int i = binary_search(x_s, n_s, 0, s);
 
     // if(i < 0){
     //     printf("Element isn't found\n");
@@ -832,13 +841,14 @@ int binary_search_r(int *x, int n, int i, int s){
 }
 
 int binary_search(int *x, int n, int i, int s){
+    n -= 1;
     while(i<=n)
-        if(x[(n-i)/2]==s)
-            return (n-i)/2;
-        else if(x[(n-i)/2]<s)
-            i = (n-i)/2 + 1;
-        else if(x[(n-i)/2]>s)
-            n = (n - i)/2 - 1;
+        if(x[(n+i)/2]==s)
+            return (n+i)/2;
+        else if(x[(n+i)/2]<s)
+            i = (n+i)/2 + 1;
+        else if(x[(n+i)/2]>s)
+            n = (n + i)/2 - 1;
     
     return -1;
 }
