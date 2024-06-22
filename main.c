@@ -414,6 +414,22 @@ int main(){
     // POSITIVE i = 1;
     // printf("%d", i);
 
+    // int arr1[4] = {1, 1, 1, 1};
+    // int arr2[4] = {2, 2, 2, 2};
+    // int arr3[4] = {3, 3, 3, 3};
+
+    // //const means that values cannot be changed using p1 but can with using arr1 
+    // //*const means p1 cannot be changed to point to other location
+    // const int *const p1 = arr1; 
+
+    // //const means that values cannot be changed using p1 but can with using arr1 
+    // //p2 can be changed to point to other location
+    // const int * p2 = arr2;
+    
+    // //*const means p1 cannot be changed to point to other location
+    // //p3 can be used to change the content of arr3
+    // int *const p3 = arr3;
+
     //#define puts said value where the name is and for PIPI should put 3.143.14
     // printf("%1.2f\n", PI);
     // SAYHI;
